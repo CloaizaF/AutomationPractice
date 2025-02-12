@@ -19,6 +19,7 @@ public class E2E {
         driver.manage().timeouts().implicitlyWait(Duration.ofSeconds(5));
         driver.get("https://rahulshettyacademy.com/dropdownsPractise/");
 
+        driver.findElement(By.id("ctl00_mainContent_rbtnl_Trip_1")).click();
         driver.findElement(By.id("ctl00_mainContent_ddl_originStation1_CTXT")).click();
         driver.findElement(By.xpath("//div[@id='glsctl00_mainContent_ddl_originStation1_CTNR'] //a[@value='BLR']")).click();
         WebDriverWait wait = new WebDriverWait(driver,Duration.ofSeconds(10));
@@ -27,7 +28,7 @@ public class E2E {
 
         //driver.findElement(By.cssSelector(".ui-state-default.ui-state-active")).click();
 
-        if(Objects.requireNonNull(driver.findElement(By.id("Div1")).getDomAttribute("style")).contains("1")){
+        if(Objects.requireNonNull(driver.findElement(By.id("Div1")).getDomAttribute("style")).contains("0.5")){
             Assert.fail();
         }
 
@@ -45,7 +46,7 @@ public class E2E {
         driver.findElement(By.id("btnclosepaxoption")).click();
 
         driver.findElement(By.id("ctl00_mainContent_btn_FindFlights")).click();
-        driver.close();
+        //driver.close();
     }
 
 }
